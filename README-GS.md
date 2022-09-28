@@ -17,9 +17,9 @@ Konstanta BLDC motor yang sudah ditentukan dideklarasikan
 
 Fungsi alih sistem BLDC motor dideklarasikan sesuai dengan rumus yang telah ditentukan
 
-    Kp = [4:6];
-    Ti = [0.4:0.2:0.6];
-    Td = [0:0.1:0.2];
+    Kp = [100,114,167];
+    Ti = [0.10,0.2];
+    Td = [0:0.3,0.04];
 
 Paramter tuning untuk metode search grid dideklarasikan
 
@@ -67,7 +67,7 @@ Berdasarkan hasil uji masing-masing kombinasi parameter tuning, dicari nilai den
 
     figure(2);
     sysss = tf(cell2mat(Cnum{1,pool}),cell2mat(Cden{1,pool}));
-    step(sysss);
+    step(sysss, 2.5);
     [ys,ts] = step(sysss);
     title('Step Response Kombinasi Terbaik');
 
@@ -82,8 +82,8 @@ Parameter tuning terbaik kemudian diuji dengan step response untuk melihat grafi
 
 Uji sistem step response untuk masing-masing kombinsai parameter
 
-![er3](https://user-images.githubusercontent.com/68903409/192127413-1cdffc71-44ac-415d-922f-c9fd3e4bcf01.png)
+![sg2](https://user-images.githubusercontent.com/68903409/192834747-3137c3e6-dd23-44df-8a07-b7813b3a6100.png)
 
 Uji sistem step response untuk parameter terbaik yang didapatkan
 
-![er4](https://user-images.githubusercontent.com/68903409/192127421-9136c2ad-bc47-43c8-a2f9-79da1936f4b4.png)
+![sg](https://user-images.githubusercontent.com/68903409/192834711-2d929b50-9459-4a20-9d6f-f03ee40103e2.png)
